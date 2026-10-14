@@ -52,6 +52,8 @@ Regeneration does not add a separate respawn delay for players who still have li
 
 This mod is in early development; if you have any feedback or feature requests, please open an issue on GitHub.
 
+Generated from https://fabricmc.net/develop/template/
+
 ## License
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
