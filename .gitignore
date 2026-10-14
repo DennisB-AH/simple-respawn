@@ -1,0 +1,24 @@
+# Gradle and Fabric Loom
+.gradle/
+build/
+run/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# Java output and logs
+*.class
+*.log
+hs_err_pid*
+
+# macOS
+.DS_Store
+
+# Git merge-tool backups
+*.orig
+*.BACKUP.*
+*.BASE.*
+*.LOCAL.*
+*.REMOTE.*

@@ -1,0 +1,35 @@
+{
+	"schemaVersion": 1,
+	"id": "simplerespawn",
+	"version": "${version}",
+	"name": "Simple respawn",
+	"description": "This is a mod to configure respawns with lives, life regeneration and more.",
+	"authors": [
+		"Dennis"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT-License",
+	"icon": "assets/simplerespawn/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			{
+				"value": "nl.babingo.SimpleRespawn",
+				"adapter": "kotlin"
+			}
+		]
+	},
+	"mixins": [
+		"simplerespawn.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": "*",
+		"fabric-language-kotlin": "*"
+	}
+}
