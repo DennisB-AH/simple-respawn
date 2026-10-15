@@ -1,0 +1,41 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - '*.*.*-*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build and test
+        env:
+          RELEASE_VERSION: ${{ github.ref_name }}
+        run: ./gradlew build "-Pversion=$RELEASE_VERSION"
+
+      - name: Publish release
+        uses: Kira-NT/mc-publish@v3
+        with:
+          files: build/libs/!(*-@(dev|sources|javadoc)).jar
+          curseforge-id: ${{ vars.CURSEFORGE_PROJECT_ID }}
+          curseforge-token: ${{ secrets.CURSEFORGE_API_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          version: ${{ github.ref_name }}
+          github-generate-changelog: true
+          version-type: release
